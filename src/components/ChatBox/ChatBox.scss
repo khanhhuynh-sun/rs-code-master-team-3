@@ -1,0 +1,12 @@
+.chatbox {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  &__toggle {
+    max-width: 7rem;
+    max-height: 7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+  }
+}

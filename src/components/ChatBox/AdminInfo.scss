@@ -1,0 +1,20 @@
+.admin-info {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__avatar {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 25rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  &__name {
+    font-size: 2rem;
+    color: #555555;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,30 @@
+@use "../../App.scss" as *;
+.hero-info {
+  display: flex;
+  position: relative;
+  &__container {
+    font-family: $hero-font;
+    color: #fff;
+  }
+  &__text {
+    font-size: 1.9rem;
+    color: #fff;
+    max-width: 40rem;
+    line-height: 2.7rem;
+    letter-spacing: -1px;
+    margin-bottom: 4rem;
+    z-index: 2;
+  }
+  &__meet {
+    font-size: 7rem;
+  }
+  &__rising-stars {
+    font-size: 20rem;
+  }
+  &__img {
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    bottom: -2rem;
+  }
+}

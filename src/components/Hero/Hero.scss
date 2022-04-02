@@ -1,0 +1,12 @@
+@use "../../App.scss" as *;
+
+.hero {
+  padding-top: 4.2rem;
+  height: 67rem;
+  background-color: $primary-color;
+  &__container {
+    width: 119.3rem;
+    height: 100%;
+    margin: 0 auto;
+  }
+}

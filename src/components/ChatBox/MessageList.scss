@@ -1,0 +1,57 @@
+@use "../../App.scss" as *;
+.message-list {
+  flex: 1 1 auto;
+  margin-top: auto;
+  max-height: 70rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(102, 102, 102, 0.3);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(170, 170, 170, 0.377);
+    border-radius: 10px;
+    background-image: rgba(0, 0, 0, 0.733);
+  }
+  &__item {
+    margin: 2rem 0;
+    display: flex;
+    column-gap: 1rem;
+    &.client {
+      align-self: flex-end;
+    }
+    &.client .message-list__avatar {
+      display: none;
+    }
+    &.client .message-list__message {
+      background-color: #fafafa;
+      border: 1px solid #e1e1e1;
+    }
+  }
+  &__avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 25rem;
+    overflow: hidden;
+  }
+  &__message {
+    background-color: #f7ffff;
+    padding: 1.4rem;
+    border: 1px solid #dbeded;
+    border-radius: 0.7rem;
+    max-width: 22rem;
+    color: #555555;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+}

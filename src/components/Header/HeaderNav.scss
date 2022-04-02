@@ -1,0 +1,10 @@
+@use "../../App.scss" as *;
+
+.navBar {
+  width: 50.9rem;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+}

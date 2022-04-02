@@ -1,0 +1,14 @@
+@use "../../App.scss" as *;
+
+.header {
+  height: 10.9rem;
+  background-color: #fff;
+  &__container {
+    width: 119.3rem;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
