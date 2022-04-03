@@ -17,7 +17,7 @@ const ChatBoxHeader = () => {
         <div className="chatbox-header__avatar">
           <img src={adminAvatar} alt="" />
         </div>
-        <div className="chatbox-header__name">PhuongHTV</div>
+        <div className="chatbox-header__name">Genesis Bot</div>
       </div>
       <div className="chatbox-header__direction">
         <div className="chatbox-header__logo">

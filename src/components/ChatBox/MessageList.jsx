@@ -1,5 +1,6 @@
 import React from "react";
 import hrAvatar from "../../img/hr-admin.png";
+import loadingGif from "../../img/typing-loading.gif";
 
 import "./MessageList.scss";
 
@@ -17,7 +18,12 @@ const MessageList = (props) => {
             <img src={hrAvatar} alt="" />
           </div>
           <div className="message-list__message">
-            <p>{message.message}</p>
+            {message.type === "loading" && (
+              <div className="message-list__loading">
+                <img src={loadingGif} alt="" />
+              </div>
+            )}
+            {message.message && <p>{message.message}</p>}
           </div>
         </li>
       ))}

@@ -1,18 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Hero from "../components/Hero/Hero";
-import { showModal, modalToggle } from "../store/slices/uiSlice";
+import CompanyInfo from "../components/CompanyInfo/CompanyInfo";
+import CompanySlider from "../components/Slider/CompanySlider";
 
 const HomePage = () => {
-  // const dispatch = useDispatch();
-  // const counter = useSelector((state) => state.ui.counter);
-  // const clickHandler = () => {
-  //   console.log(counter);
-  //   dispatch(modalToggle());
-  // };
   return (
     <main>
       <Hero />
+      <CompanySlider />
+      <CompanyInfo />
     </main>
   );
 };

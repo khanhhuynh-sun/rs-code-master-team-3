@@ -11,7 +11,7 @@ const navList = [
     path: "#",
   },
   {
-    navText: "Why Paradox",
+    navText: "Why RisingStars",
     path: "#",
   },
   {

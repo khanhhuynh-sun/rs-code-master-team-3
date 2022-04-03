@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const uiSlice = createSlice({
   name: "ui",
   initialState: {
+    isWaitingRes: false,
     isShowModal: false,
     counter: 0,
   },
@@ -19,8 +20,21 @@ export const uiSlice = createSlice({
     setCouter: (state, actions) => {
       state.counter += actions.payload.number;
     },
+    setWaitingRes: (state) => {
+      state.isWaitingRes = true;
+    },
+    removeWaitingRes: (state) => {
+      state.isWaitingRes = false;
+    },
   },
 });
 
-export const { showModal, hideModal, modalToggle, setCouter } = uiSlice.actions;
+export const {
+  showModal,
+  hideModal,
+  modalToggle,
+  setCouter,
+  setWaitingRes,
+  removeWaitingRes,
+} = uiSlice.actions;
 export default uiSlice.reducer;

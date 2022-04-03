@@ -8,7 +8,7 @@ const AdminInfo = () => {
       <div className="admin-info__avatar">
         <img src={adminAvatar} alt="admin avatar" />
       </div>
-      <h2 className="admin-info__name"> Huynh Thi Vi Phuong </h2>
+      <h2 className="admin-info__name"> Genesis Bot </h2>
     </div>
   );
 };

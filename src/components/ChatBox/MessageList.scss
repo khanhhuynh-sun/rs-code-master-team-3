@@ -2,7 +2,7 @@
 .message-list {
   flex: 1 1 auto;
   margin-top: auto;
-  max-height: 70rem;
+  max-height: 80rem;
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
@@ -41,8 +41,6 @@
   &__avatar {
     width: 4rem;
     height: 4rem;
-    border-radius: 25rem;
-    overflow: hidden;
   }
   &__message {
     background-color: #f7ffff;
@@ -53,5 +51,9 @@
     color: #555555;
     font-size: 1.4rem;
     line-height: 1.6rem;
+    word-wrap: break-word;
+  }
+  &__loading {
+    width: 3rem;
   }
 }

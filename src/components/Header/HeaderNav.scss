@@ -8,3 +8,9 @@
     font-weight: 500;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .navBar {
+    display: none;
+  }
+}

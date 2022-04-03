@@ -60,3 +60,24 @@ main {
 .btn {
   font-size: inherit;
 }
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 52.5%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 42.5%;
+  }
+}
+@media screen and (max-width: 800) {
+  html {
+    font-size: 30.5%;
+  }
+}
+@media screen and (max-width: 500) {
+  html {
+    font-size: 20.5%;
+  }
+}

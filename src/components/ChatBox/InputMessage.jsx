@@ -2,11 +2,19 @@ import React from "react";
 import "./InputMessage.scss";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { BiReset, BiSend } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { setWaitingRes, removeWaitingRes } from "../../store/slices/uiSlice";
+
+const random = Math.floor(Math.random() * 100000 + 1);
+console.log(random);
 
 const InputMessage = (props) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, resetField } = useForm();
+  const dispatch = useDispatch();
 
   const callAPI = (sendPackest) => {
+    dispatch(setWaitingRes());
     axios
       .post(
         "https://9960-14-241-121-40.ngrok.io/webhooks/rest/webhook",
@@ -14,35 +22,55 @@ const InputMessage = (props) => {
       )
       .then((res) => {
         if (res.status === 200) {
-          console.log(res);
           props.onResponseMessage(res.data);
+        } else {
+          props.onResponseMessage([]);
         }
+        dispatch(removeWaitingRes());
       })
       .catch((err) => {
+        props.onResponseMessage([]);
+        dispatch(removeWaitingRes());
         console.log(err);
       });
   };
+
   const onSubmit = (data) => {
-    const sendPackest = { sender: "user-1", message: data.clientMessage };
+    resetField("clientMessage");
+    const sendPackest = { sender: random, message: data.clientMessage };
     props.onUserSendMessage({
       message: data.clientMessage,
       role: "client",
     });
-    setTimeout(() => {
-      callAPI(sendPackest);
-    }, 1000);
+    callAPI(sendPackest);
   };
 
   return (
-    <form className="input-message" onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...register("clientMessage")}
-        type="text"
-        placeholder="Write a reply..."
-        className="input-message__input"
-        autoComplete="off"
-      />
-    </form>
+    <div className="input-message">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          {...register("clientMessage", {
+            required: true,
+            validate: (value) => !!value.trim(),
+          })}
+          type="text"
+          placeholder="Write a reply..."
+          className="input-message__input"
+          autoComplete="off"
+        />
+        <div className="input-message__button">
+          <button className="input-message__submit" type="submit">
+            <BiSend />
+          </button>
+          <button
+            className="input-message__reset"
+            onClick={props.onResetMessage}
+          >
+            <BiReset />
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

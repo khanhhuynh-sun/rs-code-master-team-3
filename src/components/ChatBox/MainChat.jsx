@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MainChat.scss";
 import Modal from "../modal/Modal";
 import MessageList from "./MessageList";
@@ -15,22 +15,74 @@ const messageListInit = [
   },
 ];
 
+const errorMessage = [
+  {
+    message: "Sorry if I understood you incorrectly.",
+    role: "server",
+  },
+  {
+    message: "I'm still learning. I may misinterpret things from time to time.",
+    role: "server",
+  },
+  {
+    message: "Sorry about that. I'm still learning",
+    role: "server",
+  },
+];
+
 const MainChat = () => {
   const [messageList, setMessageList] = useState(messageListInit);
+
+  let isLoading = useSelector((state) => state.ui.isWaitingRes);
+  useEffect(() => {
+    console.log(isLoading);
+    if (isLoading === true) {
+      setMessageList([{ role: "server", type: "loading" }, ...messageList]);
+    } else if (isLoading === false) {
+      const index = messageList.findIndex(
+        (messageItem) => messageItem.type === "loading"
+      );
+      const messages = [...messageList];
+      messages.splice(index, 1);
+      setMessageList([...messages]);
+    }
+  }, [isLoading]);
+
   const sendMessageHandler = (message) => {
     setMessageList([message, ...messageList]);
   };
 
   const responseMessageHandler = (responseDatas) => {
-    const messagePackage = [];
-    responseDatas.map((response) => {
-      if (response.text) {
-        messagePackage.push({ message: response.text, role: "server" });
-      }
-    });
-    setMessageList((messageList) => [...messagePackage, ...messageList]);
+    if (responseDatas.length === 0) {
+      const random = Math.floor(Math.random() * 2);
+      console.log(errorMessage[random]);
+
+      setMessageList((messageList) => [errorMessage[random], ...messageList]);
+    } else {
+      const messagePackage = [];
+      responseDatas.map((response) => {
+        if (response.text) {
+          messagePackage.unshift({ message: response.text, role: "server" });
+        }
+        if (response.custom) {
+          let message = "";
+          response.custom.data.map((customItem) => {
+            message += `${customItem.title}, `;
+          });
+          messagePackage.unshift({ message: message, role: "server" });
+        }
+      });
+      setMessageList((messageList) => [...messagePackage, ...messageList]);
+    }
   };
+
+  const resetMessageHandler = () => {
+    setMessageList([]);
+    console.log("reset");
+  };
+
   const isShowChat = useSelector((state) => state.ui.isShowModal);
+
   return (
     <Modal>
       <div className={`main-chat ${isShowChat ? "show" : ""} `}>
@@ -40,6 +92,7 @@ const MainChat = () => {
         <InputMessage
           onResponseMessage={responseMessageHandler}
           onUserSendMessage={sendMessageHandler}
+          onResetMessage={resetMessageHandler}
         />
       </div>
     </Modal>

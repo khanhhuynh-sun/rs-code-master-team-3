@@ -1,0 +1,11 @@
+.footerr {
+  background-color: #1b1b1b;
+  &__text {
+    color: #b1b1b1;
+  }
+  &__container {
+    padding: 2rem 0;
+    max-width: 119.3rem;
+    margin: 0 auto;
+  }
+}

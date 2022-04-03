@@ -19,6 +19,8 @@
     font-size: 7rem;
   }
   &__rising-stars {
+    position: relative;
+    z-index: 50;
     font-size: 20rem;
   }
   &__img {
@@ -26,5 +28,14 @@
     top: -2rem;
     right: 0;
     bottom: -2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero-info__img {
+    display: none;
+  }
+  .hero-info__rising-stars {
+    font-size: 15rem;
   }
 }

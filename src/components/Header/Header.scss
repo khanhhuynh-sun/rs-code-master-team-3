@@ -3,8 +3,14 @@
 .header {
   height: 10.9rem;
   background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   &__container {
-    width: 119.3rem;
+    max-width: 119.3rem;
     margin: 0 auto;
     height: 100%;
     display: flex;

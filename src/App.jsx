@@ -3,7 +3,7 @@ import "./App.scss";
 import ChatBox from "./components/ChatBox/ChatBox";
 import Header from "./components/Header/Header";
 import MainChat from "./components/ChatBox/MainChat";
-import Modal from "./components/modal/Modal";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Outlet />
       <ChatBox />
       <MainChat />
+      <Footer />
     </div>
   );
 }
