@@ -22,27 +22,23 @@ const LeftInfo = () => {
         <ul className="Info__list">
           <li className="Info__list-item">
             <h3 className="Info__list-title">Company Name</h3>
-            <p className="Info__description">
-              Est rouge inc. (株式会社エスト・ルージュ)
-            </p>
+            <p className="Info__description">Rising Stars</p>
           </li>
           <li className="Info__list-item">
-            <h3 className="Info__list-title">TOKYO Head office</h3>
+            <h3 className="Info__list-title">DA NANG Head office</h3>
             <p className="Info__description">
-              IINO building 9F, Uchisaiwaicho 2-1-1, Chiyoda-ku, Tokyo
+              F-Home Building Floor 3, 16 Ly Thuong Kiet
             </p>
-            <p className="Info__description">
-              東京都千代田区内幸町2丁目1番1号飯野ビルディング9階
-            </p>
+            <p className="Info__description">Hai Chau, Da Nang</p>
           </li>
           <li className="Info__list-item">
             <h3 className="Info__list-title">Established</h3>
-            <p className="Info__description">Nov, 2016</p>
+            <p className="Info__description">Jun, 2021</p>
           </li>
           <li className="Info__list-item">
             <h3 className="Info__list-title">Board member</h3>
-            <p className="Info__description">CEO Akiyuki Nomura</p>
-            <p className="Info__description">代表取締役 野村亮之</p>
+            <p className="Info__description">CEO Trang Nguyen Hoang Minh</p>
+            <p className="Info__description">CTO Vu Nguyen Thanh</p>
           </li>
         </ul>
       </div>
@@ -50,7 +46,7 @@ const LeftInfo = () => {
       <div className="Info" id="related">
         <h2 className="Info__title">Related companies</h2>
         <ul className="Info__list">
-          <li className="Info__list-item">
+          <li cl assName="Info__list-item">
             <h3 className="Info__list-title">Est rouge Creative Japan</h3>
             <p className="Info__description">
               IINO building 9F, Uchisaiwaicho 2-1-1, Chiyoda-ku, Tokyo
