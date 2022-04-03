@@ -3,24 +3,20 @@ import "./HeaderNav.scss";
 
 const navList = [
   {
-    navText: "Product",
-    path: "#",
+    navText: "Our mission",
+    path: "#mission",
   },
   {
-    navText: "Use Case",
-    path: "#",
+    navText: "Profile",
+    path: "#profile",
   },
   {
-    navText: "Why RisingStars",
-    path: "#",
+    navText: "Related companies",
+    path: "#related",
   },
   {
-    navText: "Learn",
-    path: "#",
-  },
-  {
-    navText: "Demo",
-    path: "#",
+    navText: "Service",
+    path: "#service",
   },
 ];
 
@@ -30,7 +26,7 @@ const HeaderNav = () => {
       <ul className="navBar__list">
         {navList.map((navItem, index) => {
           return (
-            <li className="navBar__item" key={index}>
+            <li className="navBar__item" key={index} href={navItem.path}>
               <a href={navItem.path}>{navItem.navText}</a>
             </li>
           );

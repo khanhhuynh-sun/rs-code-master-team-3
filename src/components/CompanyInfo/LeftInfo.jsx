@@ -3,7 +3,7 @@ import "./LeftInfo.scss";
 
 const LeftInfo = () => {
   return (
-    <div className="LeftInfo">
+    <div className="LeftInfo" id="mission">
       <div className="Info">
         <h2 className="Info__title">Our mission</h2>
         <p className="Info__description">
@@ -17,7 +17,7 @@ const LeftInfo = () => {
         </p>
       </div>
 
-      <div className="Info">
+      <div className="Info" id="profile">
         <h2 className="Info__title">Company profile</h2>
         <ul className="Info__list">
           <li className="Info__list-item">
@@ -47,7 +47,7 @@ const LeftInfo = () => {
         </ul>
       </div>
 
-      <div className="Info">
+      <div className="Info" id="related">
         <h2 className="Info__title">Related companies</h2>
         <ul className="Info__list">
           <li className="Info__list-item">
@@ -73,7 +73,7 @@ const LeftInfo = () => {
         </ul>
       </div>
 
-      <div className="Info">
+      <div className="Info" id="service">
         <h2 className="Info__title">Service for people visiting Japan</h2>
         <p className="Info__description">
           What we call Inbound media business, internet services for people

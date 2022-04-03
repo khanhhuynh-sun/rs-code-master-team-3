@@ -6,7 +6,7 @@ import { BiReset, BiSend } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setWaitingRes, removeWaitingRes } from "../../store/slices/uiSlice";
 
-const random = Math.floor(Math.random() * 100000 + 1);
+let random = Math.floor(Math.random() * 100000 + 1);
 console.log(random);
 
 const InputMessage = (props) => {
@@ -36,6 +36,7 @@ const InputMessage = (props) => {
   };
 
   const onSubmit = (data) => {
+    console.log(random);
     resetField("clientMessage");
     const sendPackest = { sender: random, message: data.clientMessage };
     props.onUserSendMessage({
@@ -43,6 +44,11 @@ const InputMessage = (props) => {
       role: "client",
     });
     callAPI(sendPackest);
+  };
+
+  const resetMessageHandler = () => {
+    random = Math.floor(Math.random() * 100000 + 1);
+    props.onResetMessage();
   };
 
   return (
@@ -64,7 +70,7 @@ const InputMessage = (props) => {
           </button>
           <button
             className="input-message__reset"
-            onClick={props.onResetMessage}
+            onClick={resetMessageHandler}
           >
             <BiReset />
           </button>

@@ -24,8 +24,8 @@ const CompanySlider = () => {
     <div className="companySlider">
       {console.log(sliderItems)}
       <Slider {...settings}>
-        {sliderItems.map((item) => (
-          <div className="sliderItem">
+        {sliderItems.map((item, index) => (
+          <div className="sliderItem" key={index}>
             <img src={item} alt="" />
           </div>
         ))}
