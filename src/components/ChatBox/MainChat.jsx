@@ -67,7 +67,11 @@ const MainChat = () => {
         if (response.custom) {
           let message = "";
           response.custom.data.map((customItem) => {
-            message += `${customItem.title} (${customItem.remained_slots} slots), `;
+            if (customItem.remained_slots) {
+              message += `${customItem.title} (${customItem.remained_slots} slots), `;
+            } else {
+              message += `${customItem.title}, `;
+            }
           });
           messagePackage.unshift({ message: message, role: "server" });
         }
